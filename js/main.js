@@ -36,30 +36,28 @@ document.addEventListener('keyup', (e) => {
 /* --------------------------
   -- Logic program --
 ----------------------------- */
-function calculateAllNeighbors (liveSystem, row, column) {
-  let neighbors = [liveSystem[row][column], liveSystem[row][column], liveSystem[row][column], liveSystem[row][column], liveSystem[row][column], liveSystem[row][column], liveSystem[row][column], liveSystem[row][column]] 
-  let neighborsTotal = 0;
-  for (let i = 0; i < neighbors.length; i++) {
-    neighborsTotal += neighbors[i]
-  }
-  return neighborsTotal
-}
 
-function calculateNextGeneration (after) {
-  var before = []
-  for (let row = 0; row < after.length; row++) {
-    for (let column = 0; column < after[row].length; column++) {
-      if (after[row][column]) {
-        // live
-      } else {
-        let neighborLive = calculateAllNeighbors(after, row, column)
-        if (neighborLive === 3) {
-          before[row][column] = 1
-        } else {
-          before[row][column] = 0
-        }
-      }
-    }
+function calculateAllNeighbors (liveSystem, row, column) {
+  // This function takes an array that represents a liveSystem, and the row and column of the cell that we want to now how many neighbors does it has. It creates neighbors, neighbors saves in each index every cell neighbor value, for every neighbor row it verifies if it's not undefined, and if it's not it push every neighbor cell to neighbors. Next it creates neighborsTotal, it saves how many neighbors does the cell has, for each neighbor if it's 1 we add one to neighborsTotal, finally, we return neighborsTotal
+
+  let neighbors = []
+
+  if (liveSystem[row - 1] !== undefined) {
+    neighbors.push(liveSystem[row - 1][column - 1], liveSystem[row - 1][column], liveSystem[row - 1][column + 1])
   }
-  return before
+  if (liveSystem[row] !== undefined) {
+    neighbors.push(liveSystem[row][column - 1], liveSystem[row][column + 1])
+  }
+  if (liveSystem[row + 1] !== undefined) {
+    neighbors.push(liveSystem[row + 1][column - 1], liveSystem[row + 1][column], liveSystem[row + 1][column + 1])
+  }
+
+  let neighborsTotal = 0
+  neighbors.forEach((e) => {
+    if (e === 1) {
+      neighborsTotal += 1
+    }
+  })
+
+  return neighborsTotal
 }
