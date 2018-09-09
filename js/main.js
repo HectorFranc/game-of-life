@@ -1,11 +1,7 @@
-for (let y = 0; y < Math.floor(window.innerHeight / 30); y++) {
-  document.getElementById('gridgame').innerHTML += '<div class="rowgrid">'
-  for (let x = 0; x < Math.floor(window.innerWidth / 30); x++) {
-    document.getElementById('gridgame').innerHTML += '<div class="cellgrid" onclick="colorate(this)"></div>'
-  }
-  document.getElementById('gridgame').innerHTML += '<div/>'
-}
+// Create HTML elements for gridgame and putted it in the element #gridgame
+document.getElementById('gridgame').innerHTML = ('<div class="rowgrid">' + '<div class="cellgrid" onclick="colorate(this)"></div>'.repeat(Math.floor(window.innerWidth / 30)) + '</div>').repeat(Math.floor(window.innerHeight / 30))
 
+// Function that put color to the element argument, this function is used for decide if some cell is black or white
 function colorate (element) {
   if (element.style.backgroundColor === 'rgb(0, 0, 0)') {
     element.style.backgroundColor = '#fff'
@@ -14,9 +10,8 @@ function colorate (element) {
   }
 }
 
-// Appear and disappear start button
+// Appear and disappear start button using 'q' key
 document.getElementById('startbutton').style.display = 'block'
-
 document.addEventListener('keyup', (e) => {
   if (e.key === 'q') {
     if (document.getElementById('startbutton').style.display === 'none') {
@@ -27,7 +22,7 @@ document.addEventListener('keyup', (e) => {
   }
 })
 
-// Star game, eliminate notice
+// Star game, eliminate notice using 's' key
 document.addEventListener('keyup', (e) => {
   if (e.key === 's') {
     document.getElementById('notice').style.display = 'none'
