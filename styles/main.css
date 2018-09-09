@@ -1,0 +1,47 @@
+/* ------------------------- */
+/* - Notice Styles - */
+/* ------------------------- */
+#notice{
+    position: fixed;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 200%;
+    background-color: white;
+}
+
+/* ------------------------- */
+/* - Nav Styles - */
+/* ------------------------- */
+#menubar{
+    position: fixed;
+    right: 0;
+}
+#startbutton{
+    padding: 5px;
+    background-color: rgb(0, 0, 163);
+    color: white;
+    border: 4.5px outset rgb(0, 0, 110);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif'
+}
+#startbutton:active{
+    border-style: inset;
+}
+/* ------------------------- */
+/* - Grid Styles - */
+/* ------------------------- */
+#gridgame{
+    display: table;
+    border-spacing: 1px;
+    background-color: black;
+}
+.rowgrid{
+    display: table-row;
+}
+.cellgrid{
+    display: table-cell;
+    background: white;
+    width: 29px;
+    height: 28.9px;
+}
