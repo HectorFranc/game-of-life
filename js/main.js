@@ -61,3 +61,33 @@ function calculateAllNeighbors (liveSystem, row, column) {
 
   return neighborsTotal
 }
+
+function calculateNextGeneration (before) {
+  // This function takes a live system and returns its next generation. First it creates after like before but without values (empty). Next for each row of the liveSystem checks each cell and if the cell is live and has 2 or 3 neighbors will live, else will die, if the cell is died and has 3 neighbors will live, else will died. Finally returns next Generation saved on after
+  
+  let after = []
+  for (let row = 0; row < before.length; row++) {
+    after.push(new Array(before[row].length))
+  }
+
+  before.forEach((row, rowIndex) => {
+    row.forEach((cell, cellIndex) => {
+      if (cell) {
+        // Live
+        if (calculateAllNeighbors(before, rowIndex, cellIndex) === 2 || calculateAllNeighbors(before, rowIndex, cellIndex) === 3) {
+          after[rowIndex][cellIndex] = 1
+        } else {
+          after[rowIndex][cellIndex] = 0
+        }
+      } else {
+        // Died
+        if (calculateAllNeighbors(before, rowIndex, cellIndex) === 3) {
+          after[rowIndex][cellIndex] = 1
+        } else {
+          after[rowIndex][cellIndex] = 0
+        }
+      }
+    })
+  })
+  return after
+}
