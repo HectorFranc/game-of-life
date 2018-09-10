@@ -6,22 +6,15 @@ document.getElementById('gridgame').innerHTML = ('<div class="rowgrid">' + '<div
 
 // Function that put color to the element argument, this function is used for decide if some cell is black or white
 function colorate (element) {
-  if (element.style.backgroundColor === 'rgb(0, 0, 0)') {
-    element.style.backgroundColor = '#fff'
-  } else {
-    element.style.backgroundColor = '#000'
-  }
+  element.style.backgroundColor = (element.style.backgroundColor === 'rgb(0, 0, 0)') ? '#fff' : '#000'
 }
 
 // Appear and disappear start button using 'q' key
 document.getElementById('startbutton').style.display = 'block'
 document.addEventListener('keyup', (e) => {
   if (e.key === 'q') {
-    if (document.getElementById('startbutton').style.display === 'none') {
-      document.getElementById('startbutton').style.display = 'block'
-    } else if (document.getElementById('startbutton').style.display === 'block') {
-      document.getElementById('startbutton').style.display = 'none'
-    }
+    document.getElementById('startbutton').style.display = (document.getElementById('startbutton').style.display === 'none') ? 'block' : 'none'
+    // Add automatic Button
   }
 })
 
@@ -79,18 +72,10 @@ function calculateNextGeneration (before) {
     row.forEach((cell, cellIndex) => {
       if (cell) {
         // Live
-        if (calculateAllNeighbors(before, rowIndex, cellIndex) === 2 || calculateAllNeighbors(before, rowIndex, cellIndex) === 3) {
-          after[rowIndex][cellIndex] = 1
-        } else {
-          after[rowIndex][cellIndex] = 0
-        }
+        after[rowIndex][cellIndex] = (calculateAllNeighbors(before, rowIndex, cellIndex) === 2 || calculateAllNeighbors(before, rowIndex, cellIndex) === 3) ? 1 : 0
       } else {
         // Died
-        if (calculateAllNeighbors(before, rowIndex, cellIndex) === 3) {
-          after[rowIndex][cellIndex] = 1
-        } else {
-          after[rowIndex][cellIndex] = 0
-        }
+        after[rowIndex][cellIndex] = (calculateAllNeighbors(before, rowIndex, cellIndex) === 3) ? 1 : 0
       }
     })
   })
@@ -103,11 +88,7 @@ function applyNewLiveSystem (system) {
   htmlRowGridS.forEach((actualRow, indexRow) => {
     let htmlCellGridS = actualRow.childNodes
     htmlCellGridS.forEach((actualCell, indexCell) => {
-      if (system[indexRow][indexCell]) {
-        actualCell.style.backgroundColor = 'black'
-      } else {
-        actualCell.style.backgroundColor = 'white'
-      }
+      actualCell.style.backgroundColor = (system[indexRow][indexCell]) ? 'black' : 'white'
     })
   })
 }
@@ -122,11 +103,7 @@ function getActualSystem () {
   htmlRowGridS.forEach((actualRow, indexRow) => {
     let htmlCellGridS = actualRow.childNodes
     htmlCellGridS.forEach((actualCell, indexCell) => {
-      if (actualCell.style.backgroundColor === 'rgb(0, 0, 0)' || actualCell.style.backgroundColor === 'black' || actualCell.style.backgroundColor === '#000') {
-        actualSystem[indexRow][indexCell] = 1
-      } else {
-        actualSystem[indexRow][indexCell] = 0
-      }
+      actualSystem[indexRow][indexCell] = (actualCell.style.backgroundColor === 'rgb(0, 0, 0)' || actualCell.style.backgroundColor === 'black' || actualCell.style.backgroundColor === '#000') ? 1 : 0
     })
   })
   return actualSystem
