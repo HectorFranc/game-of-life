@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <nav id="menubar"><button id="startbutton" onclick="updateSystemForButton()">Next generation</button></nav>
+    <nav id="menubar">
+        <button id="startbutton" onclick="updateSystemForButton()">Next generation</button>
+        <button id="automaticButton" onclick="automaticButtonActivate(this)">Automatic</button>
+        <button id="pauseButton" onclick="automaticButtonPause(this)" style="display: none;">Pause</button>
+    </nav>
     <div id="gridgame"></div>
     <div id="notice">
         <p>Press 'q' for hide or show the Next Generation button. <br/> For start press 's' key or press below button.</p>
