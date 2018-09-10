@@ -10,11 +10,10 @@ function colorate (element) {
 }
 
 // Appear and disappear start button using 'q' key
-document.getElementById('startbutton').style.display = 'block'
+document.getElementById('menubar').style.display = 'block'
 document.addEventListener('keyup', (e) => {
   if (e.key === 'q') {
-    document.getElementById('startbutton').style.display = (document.getElementById('startbutton').style.display === 'none') ? 'block' : 'none'
-    // Add automatic Button
+    document.getElementById('menubar').style.display = (document.getElementById('menubar').style.display === 'none') ? 'block' : 'none'
   }
 })
 
