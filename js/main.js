@@ -113,3 +113,18 @@ function updateSystemForButton () {
   //  This function get the actual System and its next generation that is applied to the DOM with applyNewLiveSystem. This function is activated by the startButton.
   applyNewLiveSystem(calculateNextGeneration(getActualSystem()))
 }
+
+// Here we create a variable that will save the interval ID for clear it next. The first fucntion is calleb by #automaticButton update actual System next create an interval and saves it at the variable next dissappears the button a appears the #pauseButton. The other function does the same but for the #pauseButton
+var temporizerUpdater
+function automaticButtonActivate (element) {
+  updateSystemForButton()
+  temporizerUpdater = window.setInterval(updateSystemForButton, 600)
+  element.style.display = 'none'
+  document.getElementById('pauseButton').style.display = 'block'
+}
+
+function automaticButtonPause (element) {
+  window.clearInterval(temporizerUpdater)
+  element.style.display = 'none'
+  document.getElementById('automaticButton').style.display = 'block'
+}
