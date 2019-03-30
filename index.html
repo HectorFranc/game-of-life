@@ -18,7 +18,16 @@
     </nav>
     <div id="gridgame"></div>
     <div id="notice">
-        <p>Press 'q' for hide or show the Next Generation button. <br/> For start press 's' key or press below button.</p>
+        <h2>Welcome to the Game of life</h2>
+        <p>This is a 0 players game, the rules are:</p>
+        <ul>
+            <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
+            <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+            <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+            <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+        </ul>
+        <p>Select the 'initial cells' in the next grid</p>
+        <p>For start press 's' key or press 'Start Game Of Life' button below.<br>Press 'q' for hide or show the 'Next Generation' button.</p>
         <div id="playButton"><button onclick="startGameOfLife()">Start Game Of Life</button></div>
     </div>
     <script src="js/main.js"></script>
