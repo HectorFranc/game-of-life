@@ -6,6 +6,7 @@ function changeLenguage (toLanguage) {
     document.getElementById('automaticButton').innerHTML = 'Automático'
     document.getElementById('pauseButton').innerHTML = 'Pausa'
     document.getElementById('startGameOfLifeButton').innerHTML = 'Iniciar Juego De La Vida'
+    document.head.getElementsByTagName('title')[0].innerHTML = 'El Juego De La vida'
   } else {
     document.getElementById('english-notice').style.display = 'block'
     document.getElementById('spanish-notice').style.display = 'none'
@@ -13,5 +14,6 @@ function changeLenguage (toLanguage) {
     document.getElementById('automaticButton').innerHTML = 'Automatic'
     document.getElementById('pauseButton').innerHTML = 'Pause'
     document.getElementById('startGameOfLifeButton').innerHTML = 'Start Game Of Life'
+    document.head.getElementsByTagName('title')[0].innerHTML = 'Game Of Life'
   }
 }
