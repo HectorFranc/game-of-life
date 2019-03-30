@@ -18,18 +18,35 @@
     </nav>
     <div id="gridgame" style="display:none;"></div>
     <div id="notice">
-        <h2>Welcome to the Game of life</h2>
-        <p>This is a 0 players game, the rules are:</p>
-        <ul>
-            <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
-            <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
-            <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
-            <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
-        </ul>
-        <p>Select the 'initial cells' in the next grid</p>
-        <p>For start press 's' key or press 'Start Game Of Life' button below.<br>Press 'q' for hide or show the 'Next Generation' button.</p>
-        <div id="playButton"><button onclick="startGameOfLife()">Start Game Of Life</button></div>
+        <div id="english-notice" style="display: block">
+            <h2>Welcome to the Game of life</h2>
+            <p>This is a 0 players game, the rules are:</p>
+            <ul>
+                <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
+                <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+                <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+                <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+            </ul>
+            <p>Select the "initial cells" in the next grid</p>
+            <p>For start press 's' key or press 'Start Game Of Life' button below.<br>Press 'q' for hide or show the 'Next Generation' button.</p>
+        </div>
+        <div id="spanish-notice" style="display: none;" lang="es">
+            <h2>Bienvenido al Juego de la Vida</h2>
+            <p>Este es un juego para 0 jugadores, las reglas son:</p>
+            <ul>
+                <li>Cualquier célula con menos de dos células vecinas muere, por soledad.</li>
+                <li>Cualquier célula con dos o tres células vecinas vivas vive para la siguiente generación.</li>
+                <li>Cualquier célula con más de tres células vecinas vivas muere, por sobrepoblación.</li>
+                <li>Cualquier célula con exactamente tres células vecinas vivas se convirte en una célula viva, por reproducción.</li>
+            </ul>
+            <p>Selecciona las "células iniciales" en la siguiente cuadrícula</p>
+            <p>Para iniciar presiona la tecla 's' o presiona el botón 'Start Game Of Life' de abajo<br>Presiona 'q' para esconder o mostrar el botón 'Next Generation'.</p>
+        </div>
+        <div id="playButton"><button id="startGameOfLifeButton" onclick="startGameOfLife()">Start Game Of Life</button></div>
+        <div id="change-language"><span onclick="changeLenguage('es')">ES</span> | <span onclick="changeLenguage('en')">EN</span></div>
     </div>
+
     <script src="js/main.js"></script>
+    <script src="js/language-change.js"></script>
 </body>
 </html>

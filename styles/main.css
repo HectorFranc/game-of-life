@@ -12,6 +12,7 @@
 /* - Play Button Styles - */
 /* ------------------------- */
 #playButton>button{
+    cursor: pointer;
     font-size: 130%;
     padding: 8px;
     background-color: rgb(163, 0, 0);
@@ -60,4 +61,12 @@
     background: white;
     width: 29px;
     height: 28.9px;
+}
+
+/* ------------------------- */
+/* - Language buttons - */
+/* ------------------------- */
+#change-language>span{
+    color: blue;
+    cursor: pointer;
 }
