@@ -10,7 +10,6 @@ function colorate (element) {
 }
 
 // Appear and disappear start button using 'q' key
-document.getElementById('menubar').style.display = 'block'
 document.addEventListener('keyup', (e) => {
   if (e.key === 'q') {
     document.getElementById('menubar').style.display = (document.getElementById('menubar').style.display === 'none') ? 'block' : 'none'
@@ -20,7 +19,8 @@ document.addEventListener('keyup', (e) => {
 // It creates a function that will be used by 's' key and playButton for start game
 function startGameOfLife () {
   document.getElementById('notice').style.display = 'none'
-  document.getElementById('startbutton').style.display = 'block'
+  document.getElementById('gridgame').style.display = 'table'
+  document.getElementById('menubar').style.display = 'block'
 }
 
 // Star game, eliminate notice using 's' key

@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <nav id="menubar">
+    <nav id="menubar" style="display:none;">
         <button id="startbutton" onclick="updateSystemForButton()">Next generation</button>
         <button id="automaticButton" onclick="automaticButtonActivate(this)">Automatic</button>
         <button id="pauseButton" onclick="automaticButtonPause(this)" style="display: none;">Pause</button>
     </nav>
-    <div id="gridgame"></div>
+    <div id="gridgame" style="display:none;"></div>
     <div id="notice">
         <h2>Welcome to the Game of life</h2>
         <p>This is a 0 players game, the rules are:</p>
