@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <nav id="menubar" style="display:none;">
-        <button id="startbutton" onclick="updateSystemForButton()">Next generation</button>
-        <button id="automaticButton" onclick="automaticButtonActivate(this)">Automatic</button>
-        <button id="pauseButton" onclick="automaticButtonPause(this)" style="display: none;">Pause</button>
-    </nav>
-    <div id="gridgame" style="display:none;"></div>
+    <aside id="menubar">
+        <button id="startbutton">Next generation</button>
+        <button id="automaticButton">Auto</button>
+        <button id="pauseButton">Pause</button>
+    </aside>
+    <div id="gridgame"></div>
     <div id="notice">
-        <div id="english-notice" style="display: block">
+        <div id="english-notice" lang="en">
             <h2>Welcome to the Game of life</h2>
             <p>This is a 0 players game, the rules are:</p>
             <ul class="rules-list">
@@ -28,9 +28,8 @@
                 <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
             </ul>
             <p>Select the "initial cells" in the next grid</p>
-            <p>For start press 's' key or press 'Start Game Of Life' button below.<br>Press 'q' for hide or show the 'Next Generation' button.</p>
         </div>
-        <div id="spanish-notice" style="display: none;" lang="es">
+        <div id="spanish-notice" lang="es">
             <h2>Bienvenido al Juego de la Vida</h2>
             <p>Este es un juego para 0 jugadores, las reglas son:</p>
             <ul class="rules-list">
@@ -40,13 +39,12 @@
                 <li>Cualquier célula con exactamente tres células vecinas vivas se convirte en una célula viva, por reproducción.</li>
             </ul>
             <p>Selecciona las "células iniciales" en la siguiente cuadrícula</p>
-            <p>Para iniciar presiona la tecla 's' o presiona el botón 'Start Game Of Life' de abajo<br>Presiona 'q' para esconder o mostrar el botón 'Next Generation'.</p>
         </div>
-        <div id="playButton"><button id="startGameOfLifeButton" onclick="startGameOfLife()">Start Game Of Life</button></div>
-        <div id="change-language"><span onclick="changeLenguage('es')">ES</span> | <span onclick="changeLenguage('en')">EN</span></div>
+        <div id="playButton"><button id="startGameOfLifeButton">Start Game Of Life</button></div>
+        <div id="change-language"><span id="es">ES</span> | <span id="en">EN</span></div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/language-change.js"></script>
+    <script async src="js/language-change.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
-var numColumns = Math.floor(window.innerWidth / 30)
-var numRows = Math.floor(window.innerHeight / 30)
+let cellSquareWidth = 30
+let numColumns = Math.floor(window.innerWidth / cellSquareWidth)
+let numRows = Math.floor(window.innerHeight / cellSquareWidth)
 
 // Create HTML elements for gridgame and putted it in the element #gridgame
 document.getElementById('gridgame').innerHTML = ('<div class="rowgrid">' + '<div class="cellgrid" onclick="colorate(this)"></div>'.repeat(numColumns) + '</div>').repeat(numRows)
@@ -9,26 +10,12 @@ function colorate (element) {
   element.style.backgroundColor = (element.style.backgroundColor === 'rgb(0, 0, 0)') ? '#fff' : '#000'
 }
 
-// Appear and disappear start button using 'q' key
-document.addEventListener('keyup', (e) => {
-  if (e.key === 'q') {
-    document.getElementById('menubar').style.display = (document.getElementById('menubar').style.display === 'none') ? 'block' : 'none'
-  }
-})
-
 // It creates a function that will be used by 's' key and playButton for start game
 function startGameOfLife () {
   document.getElementById('notice').style.display = 'none'
   document.getElementById('gridgame').style.display = 'table'
   document.getElementById('menubar').style.display = 'block'
 }
-
-// Star game, eliminate notice using 's' key
-document.addEventListener('keyup', (e) => {
-  if (e.key === 's') {
-    startGameOfLife()
-  }
-})
 
 /* --------------------------
   -- Logic program --
@@ -115,15 +102,35 @@ function updateSystemForButton () {
 
 // Here we create a variable that will save the interval ID for clear it next. The first fucntion is calleb by #automaticButton update actual System next create an interval and saves it at the variable next dissappears the button a appears the #pauseButton. The other function does the same but for the #pauseButton
 var temporizerUpdater
-function automaticButtonActivate (element) {
+function automaticButtonActivate () {
+  let element = this
   updateSystemForButton()
   temporizerUpdater = window.setInterval(updateSystemForButton, 600)
   element.style.display = 'none'
   document.getElementById('pauseButton').style.display = 'block'
 }
 
-function automaticButtonPause (element) {
+function automaticButtonPause () {
+  let element = this
   window.clearInterval(temporizerUpdater)
   element.style.display = 'none'
   document.getElementById('automaticButton').style.display = 'block'
 }
+
+/* --------------------------
+  -- Menu Bar event listeners --
+----------------------------- */
+
+let startbutton = document.getElementById('startbutton')
+let automaticButton = document.getElementById('automaticButton')
+let pauseButton = document.getElementById('pauseButton')
+let startGameOfLifeButton = document.getElementById('startGameOfLifeButton')
+let changeLanguageSpanishButton = document.querySelector('#change-language > #es')
+let changeLanguageEnglishButton = document.querySelector('#change-language > #en')
+
+startbutton.addEventListener('click', updateSystemForButton)
+automaticButton.addEventListener('click', automaticButtonActivate)
+pauseButton.addEventListener('click', automaticButtonPause)
+startGameOfLifeButton.addEventListener('click', startGameOfLife)
+changeLanguageSpanishButton.addEventListener('click', () => {changeLenguage('es')})
+changeLanguageEnglishButton.addEventListener('click', () => {changeLenguage('en')})

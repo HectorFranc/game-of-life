@@ -11,7 +11,7 @@ function changeLenguage (toLanguage) {
     document.getElementById('english-notice').style.display = 'block'
     document.getElementById('spanish-notice').style.display = 'none'
     document.getElementById('startbutton').innerHTML = 'Next generation'
-    document.getElementById('automaticButton').innerHTML = 'Automatic'
+    document.getElementById('automaticButton').innerHTML = 'Auto'
     document.getElementById('pauseButton').innerHTML = 'Pause'
     document.getElementById('startGameOfLifeButton').innerHTML = 'Start Game Of Life'
     document.head.getElementsByTagName('title')[0].innerHTML = 'Game Of Life'
